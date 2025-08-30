@@ -21,3 +21,8 @@ export interface TriviaQuestionProps {
     setSelectedQuestions: Dispatch<SetStateAction<filledQuestions[]>>;
 }
 
+
+
+export interface QuestionsOutcomeProps {
+    filledQuestions: filledQuestions[]
+}

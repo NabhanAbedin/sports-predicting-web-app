@@ -1,0 +1,66 @@
+/* Navigation bar styling */
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: transparent;
+    gap: 24px;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .nav-link {
+    color: rgba(0, 0, 0, 0.7);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    text-transform: lowercase;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .nav-link:hover {
+    color: #333333;
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: scale(1.05);
+  }
+  
+  .nav-link:active {
+    transform: scale(1.02);
+  }
+  
+  /* Active/current page styling */
+  .nav-link.active {
+    color: #333333;
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    nav {
+      padding: 10px 16px;
+      gap: 16px;
+    }
+    
+    .nav-link {
+      font-size: 14px;
+      padding: 6px 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    nav {
+      justify-content: center;
+      gap: 12px;
+      padding: 12px 0;
+    }
+    
+    .nav-link {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
