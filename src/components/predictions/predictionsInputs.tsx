@@ -4,6 +4,7 @@ import { Leagues } from "../../types/predictions";
 import { PredictorOptions, PredictorOption } from "../../types/predictions";
 import PredictorInput from "./predictorInput";
 import '../../styles/predictions.css';
+import PredictorResults from "./predictorResults";
 
 
 
@@ -14,6 +15,7 @@ const PredictionsInputs: FC = () => {
         minSamples: '',
         date: ''
     })
+    const [step, setStep] = useState<'form' | 'result'>('form');
 
     const handleChange = (field: PredictorOption, value: string) => {
         setPredictorOptions(prev => ({
@@ -22,8 +24,32 @@ const PredictionsInputs: FC = () => {
         }))
     }
 
+    const handleSubmit = () => {
+            if (Number(predictorOptions.estimators) < 10 || Number(predictorOptions.estimators) > 200) {
+                alert('minimum is 10');
+                 return 
+                }
+            if (Number(predictorOptions.minSamples) < 3 || Number(predictorOptions.minSamples) > 30) {
+                alert('estimators need to be between 3 and 30'); 
+                return;
+
+            } 
+            if (Number(predictorOptions.date) < 2021 || Number(predictorOptions.date) > 2023) {
+                alert('date needs to be between 2021 and 2023');
+                return
+            } 
+
+           setStep('result');
+
+    }
+
+    if (step === 'result' && league) {
+        return <PredictorResults league={league} predictorOptions={predictorOptions} />
+    }
+
     return (
         <div className="prediction-inputs-container">
+            <h1 className="header">Choose your prediction model settings</h1>
             <PredictorInput
                 predictorOption="estimators"
                 inputValue={predictorOptions.estimators}
@@ -40,6 +66,7 @@ const PredictionsInputs: FC = () => {
             inputValue={predictorOptions.date}
             handleChange={handleChange} 
             explanation="This date determines which games your model learns from versus which games it uses to test how good its predictions are. Everything before this date is used to train the model, and everything after is used to see how well it predicts. If you pick an earlier date, your model learns from older games and gets tested on more recent ones, which gives you a better idea of how well it will predict future games. If you pick a later date, the model gets to learn from more games but has fewer recent games to test on. The key is finding a balance where you have enough historical games for the model to learn patterns from, but also enough recent games to properly test whether those patterns still hold true."/>
+            <button className="submit" onClick={handleSubmit}>Submit</button>
         </div>
     )
 

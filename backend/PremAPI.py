@@ -10,8 +10,12 @@ CORS(app)
 @app.route('/predictions', methods=['GET', 'POST'])
 def preprocess():
     data = request.get_json()
+    estimators = int(data['estimators'])
+    min_samples = int(data['minSamples'])
+    date = int(data['date'])
     print(data['league'])
-    predictor = Predictor(data['league']+'.csv')
+    predictor = Predictor(data['league']+'.csv',estimators, min_samples,date)
+
 
     print(f'Recieved Data: {data}')
     print('data:', data['league'])
@@ -25,6 +29,8 @@ def preprocess():
     
 
     predictions = json.loads(final_df.to_json(orient='records'))  
+    predictions.sort(key=lambda x: x["Date"])
+
     precision_py = np.asarray(precision).tolist()              
 
     return jsonify({'predictions': predictions, 'precision': precision_py})

@@ -6,9 +6,10 @@ from sklearn.metrics import precision_score
 
 
 class Predictor:
-    def __init__(self, data):
+    def __init__(self, data, estimators, min_samples, date):
         self.matches = pd.read_csv(data, index_col=0)
-        self.rf = RandomForestClassifier(n_estimators=100, min_samples_split=10, random_state=1)
+        self.rf = RandomForestClassifier(n_estimators=estimators, min_samples_split=min_samples, random_state=1)
+        self.date = date
 
 
 
@@ -78,8 +79,8 @@ class Predictor:
 
 
     def make_predictions(self,data,predictors): 
-        train = data[data['Date'] < '2023-08-01']
-        test = data[data['Date'] > '2023-08-01']
+        train = data[data['Date'] < f'{self.date}-08-01']
+        test = data[data['Date'] > f'{self.date}-08-01']
 
         self.rf.fit(train[predictors],train['Target'])
 

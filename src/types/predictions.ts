@@ -8,6 +8,11 @@ export interface predictionObj {
     prediction: string
 }
 
+export interface PredictionAPIResponse {
+    precision: number[],
+    predictions: predictionObj[]
+}
+
 export interface PredictorOptions {
     estimators: string,
     minSamples: string, 
@@ -21,4 +26,9 @@ export interface PredictorInputProps {
     inputValue: string,
     handleChange: (field: PredictorOption, value: string) => void,
     explanation: string
+}
+
+export interface PredictorResultsProps {
+    league: Leagues,
+    predictorOptions: PredictorOptions
 }

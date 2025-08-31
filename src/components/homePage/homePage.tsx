@@ -19,11 +19,8 @@ const HomePage:FC = () => {
         <div className="what-we-do">
           <p>What Do We Do?</p>
           <div className="what-we-do-text">
-            We utilize a machine learning algorithm, based off of historical data, player
-            statistics, team performance metrics, and real-time game analytics, to accurately predict the standings
-            of top European football leagues, providing users with deeper
-            insights into potential outcomes and trends.
-          </div>
+            This web app uses a machine learning algorithm trained on historical match data, team performance metrics, and player statistics from the 2020–2021 season through the 2023–2024 season to predict the outcomes of future games. Users can experiment with different model hyperparameters to explore which combinations lead to the most accurate predictions.
+            </div>
         </div>
       </div>
         </>

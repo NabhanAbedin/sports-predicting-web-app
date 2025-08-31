@@ -1,3 +1,669 @@
+/* Predictions Input Container */
 .prediction-inputs-container {
-    margin-top: 50px;
-}
+    width: 87.75vw;
+    min-height: 71.78vh;
+    margin: 100px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .header {
+    color: black !important;
+  }
+
+  .submit {
+    font-size: 16px;
+    padding: 12px 24px;
+    max-width: 250px;
+    margin-bottom: 50px;
+  }
+  
+  /* Individual prediction input styling */
+  .prediction-input {
+    width: 100%;
+    max-width: 800px;
+    padding: 24px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: #4a4a4a;
+    color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .3);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+  
+  .prediction-input:hover {
+    transform: scale(1.01);
+    background-color: #5a5a5a;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Input label styling */
+  .prediction-input p {
+    margin: 0 0 12px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+  }
+  
+  /* Input field styling */
+  .prediction-input input[type="text"] {
+    width: 100%;
+    padding: 12px 16px;
+    margin: 0 0 16px 0;
+    border: 1px solid gray;
+    border-radius: 8px;
+    background-color: #3a3a3a;
+    color: white;
+    font-size: 16px;
+    line-height: 1.4;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    box-sizing: border-box;
+  }
+  
+  .prediction-input input[type="text"]:focus {
+    outline: none;
+    border-color: #666;
+    background-color: #4a4a4a;
+  }
+  
+  .prediction-input input[type="text"]::placeholder {
+    color: #999;
+  }
+  
+  /* Button styling */
+  .prediction-input button, .submit {
+    padding: 10px 16px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    background-color: #1a1a1a;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    margin-bottom: 16px;
+  }
+  
+  .prediction-input button:hover {
+    transform: scale(1.02);
+    background-color: #404040;
+  }
+  
+  .prediction-input button:active {
+    transform: scale(1.01);
+  }
+  
+  /* Explanation container styling */
+  .explanation-container {
+    padding: 16px 20px;
+    margin-top: 12px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    background-color: #1a1a1a;
+    color: white;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: left;
+  }
+  
+  /* Page title styling */
+  body h1:first-of-type {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Submit or action button container (if you add one later) */
+  .prediction-submit-container {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .prediction-submit-container button {
+    padding: 16px 32px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: #4a4a4a;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    text-transform: lowercase;
+  }
+  
+  .prediction-submit-container button:hover {
+    transform: scale(1.02);
+    background-color: #3d3d3d;
+  }
+  
+  .prediction-submit-container button:active {
+    transform: scale(1.01);
+  }
+  
+  /* Loading and error states */
+  .prediction-inputs-container h1 {
+    font-size: 32px;
+    font-weight: 300;
+    text-align: center;
+    margin: 40px 0;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 1024px) {
+    .prediction-inputs-container {
+      width: min(900px, 92vw);
+      margin-top: 120px;
+    }
+    
+    .prediction-input {
+      padding: 20px;
+    }
+    
+    .prediction-input p {
+      font-size: 16px;
+    }
+    
+    .prediction-input input[type="text"] {
+      font-size: 15px;
+      padding: 10px 14px;
+    }
+    
+    .prediction-input button {
+      font-size: 13px;
+      padding: 8px 14px;
+    }
+    
+    .explanation-container {
+      font-size: 14px;
+      padding: 14px 16px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .prediction-inputs-container {
+      gap: 20px;
+      margin-top: 80px;
+    }
+    
+    .prediction-input {
+      padding: 16px;
+    }
+    
+    .prediction-input p {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+    
+    .prediction-input input[type="text"] {
+      font-size: 14px;
+      padding: 8px 12px;
+      margin-bottom: 12px;
+    }
+    
+    .prediction-input button {
+      font-size: 12px;
+      padding: 6px 12px;
+      margin-bottom: 12px;
+    }
+    
+    .explanation-container {
+      font-size: 13px;
+      padding: 12px 14px;
+      line-height: 1.5;
+    }
+    
+    .prediction-submit-container button {
+      font-size: 16px;
+      padding: 12px 24px;
+    }
+  }
+
+  .predictions-table {
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .precision-container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   margin: 10px auto;
+   margin-bottom: 50px;
+  }
+
+
+  /* League Selection Container */
+.league-select-container {
+    width: 87.75vw;
+    min-height: 71.78vh;
+    margin: 100px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+    align-items: stretch;
+    justify-items: stretch;
+    justify-content: center;
+  }
+  
+  /* Individual league selection card */
+  .league-select {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: #4a4a4a;
+    color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .3);
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    text-align: center;
+    min-height: 200px;
+  }
+  
+  /* Hover/active states */
+  .league-select:hover {
+    transform: scale(1.02);
+    background-color: #5a5a5a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+  
+  .league-select:active {
+    transform: scale(1.01);
+  }
+  
+  /* League logo styling */
+  .league-select img {
+    width: 100%;
+    max-width: 120px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+  }
+  
+  .league-select:hover img {
+    transform: scale(1.05);
+  }
+  
+  /* Page title styling */
+  h1 {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Loading and error states */
+  .league-select-container h1 {
+    font-size: 32px;
+    font-weight: 300;
+    color: #333333;
+    text-align: center;
+    margin: 40px 0;
+  }
+  
+  /* Selected state (if you want to add visual feedback) */
+  .league-select.selected {
+    background-color: #6a6a6a;
+    border-color: #888;
+    transform: scale(1.02);
+  }
+  
+  .league-select.selected img {
+    transform: scale(1.05);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 1024px) {
+    .league-select-container {
+      grid-template-columns: 1fr;
+      width: min(900px, 92vw);
+      margin-top: 120px;
+      gap: 20px;
+    }
+    
+    .league-select {
+      padding: 20px;
+      min-height: 180px;
+    }
+    
+    .league-select img {
+      max-width: 100px;
+    }
+    
+    h1 {
+      font-size: 28px;
+      margin-top: 40px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .league-select-container {
+      gap: 15px;
+      margin-top: 80px;
+    }
+    
+    .league-select {
+      padding: 16px;
+      min-height: 150px;
+    }
+    
+    .league-select img {
+      max-width: 80px;
+    }
+    
+    h1 {
+      font-size: 24px;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+  }
+  
+  /* Optional: Add league names below images */
+  .league-select::after {
+    content: '';
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .league-select:nth-child(1)::after {
+    content: 'Premier League';
+  }
+  
+  .league-select:nth-child(2)::after {
+    content: 'La Liga';
+  }
+  
+  .league-select:nth-child(3)::after {
+    content: 'Serie A';
+  }
+  
+  @media (max-width: 768px) {
+    .league-select::after {
+      font-size: 14px;
+      margin-top: 8px;
+    }
+  }
+
+  /* Results container */
+.predictor-results-container {
+    width: 87.75vw;
+    min-height: 71.78vh;
+    margin: 100px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  /* Predictions table styling */
+  .predictions-table {
+    width: 100%;
+    max-width: 1000px;
+    border-collapse: collapse;
+    background-color: transparent;
+    color: black;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  /* Table header styling */
+  .predictions-table thead {
+    background-color: #4a4a4a;
+  }
+  
+  .predictions-table th {
+    padding: 16px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: white;
+    border: 1px solid #666;
+    font-size: 18px;
+    letter-spacing: 0.3px;
+  }
+  
+  /* Table body styling */
+  .predictions-table tbody tr {
+    transition: background-color 0.2s ease;
+  }
+  
+  .predictions-table tbody tr:nth-child(even) {
+    background-color: rgba(74, 74, 74, 0.3);
+  }
+  .predictions-table tbody tr:nth-child(odd) {
+    background-color: rgba(74, 74, 74, 0.3);
+  }
+  
+  .predictions-table tbody tr:hover {
+    background-color: rgba(90, 90, 90, 0.5);
+  }
+  
+  .predictions-table td {
+    padding: 14px 12px;
+    border: 1px solid #666;
+    color: white;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  
+  /* Precision container styling */
+  .precision-container {
+    max-width: 400px;
+    padding: 20px 24px;
+    text-align: center;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+  
+  .return-button {
+    margin-top: 30px;
+    padding: 16px 32px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: #4a4a4a;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    text-transform: lowercase;
+    max-width: 200px;
+  }
+  
+  .return-button:hover {
+    transform: scale(1.02);
+    background-color: #5a5a5a;
+  }
+  
+  .return-button:active {
+    transform: scale(1.01);
+  }
+
+  
+  .precision-container p {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Return button styling */
+  .predictor-results-container button {
+    padding: 16px 32px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: #4a4a4a;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    text-transform: lowercase;
+    max-width: 200px;
+  }
+  
+  .predictor-results-container button:hover {
+    transform: scale(1.02);
+    background-color: #5a5a5a;
+  }
+  
+  .predictor-results-container button:active {
+    transform: scale(1.01);
+  }
+  
+  /* Loading and error states */
+  .predictor-results-container h1 {
+    font-size: 32px;
+    font-weight: 300;
+    color: white;
+    text-align: center;
+    margin: 40px 0;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 1024px) {
+    .predictor-results-container {
+      width: min(900px, 92vw);
+      margin-top: 120px;
+    }
+    
+    .predictions-table {
+      font-size: 14px;
+    }
+    
+    .predictions-table th {
+      padding: 12px 8px;
+      font-size: 16px;
+    }
+    
+    .predictions-table td {
+      padding: 10px 8px;
+      font-size: 14px;
+    }
+    
+    .precision-container {
+      padding: 16px 20px;
+    }
+    
+    .precision-container p {
+      font-size: 18px;
+    }
+    
+    .predictor-results-container button {
+      font-size: 16px;
+      padding: 12px 24px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .predictor-results-container {
+      gap: 20px;
+      margin-top: 80px;
+    }
+    
+    .predictions-table {
+      font-size: 12px;
+    }
+    
+    .predictions-table th {
+      padding: 8px 6px;
+      font-size: 14px;
+    }
+    
+    .predictions-table td {
+      padding: 8px 6px;
+      font-size: 12px;
+    }
+    
+    .precision-container {
+      padding: 14px 16px;
+    }
+    
+    .precision-container p {
+      font-size: 16px;
+    }
+    
+    .predictor-results-container button {
+      font-size: 14px;
+      padding: 10px 20px;
+    }
+  }
+  
+  /* Optional: Scroll behavior for wide tables on mobile */
+  @media (max-width: 768px) {
+    .predictions-table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    
+    .predictions-table thead,
+    .predictions-table tbody,
+    .predictions-table th,
+    .predictions-table td,
+    .predictions-table tr {
+      display: block;
+    }
+    
+    .predictions-table thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    
+    .predictions-table tr {
+      border: 1px solid #666;
+      margin-bottom: 10px;
+      background-color: rgba(74, 74, 74, 0.3);
+      border-radius: 8px;
+      padding: 12px;
+    }
+    
+    .predictions-table td {
+      border: none;
+      position: relative;
+      padding-left: 50%;
+      white-space: normal;
+    }
+    
+    .predictions-table td:before {
+      content: attr(data-label) ": ";
+      position: absolute;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      font-weight: 600;
+      color: #ccc;
+    }
+  }

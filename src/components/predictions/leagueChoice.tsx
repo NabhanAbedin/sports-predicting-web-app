@@ -19,7 +19,7 @@ const LeagueChoice:FC = () => {
 
     return (
         <>
-         <h1>Select Your League</h1>
+         <h1 className="header">Select Your League</h1>
         <div className="league-select-container">
             <div className="league-select" onClick={() => setSelectedLeague('PremierLeague')}>
                 <img src={premImg} alt="" />
