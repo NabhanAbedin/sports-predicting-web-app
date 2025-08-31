@@ -1,12 +1,13 @@
 import { FC } from "react";
 import '../../styles/homepage.css';
+import video from '../../assets/0104.mov'
 
 const HomePage:FC = () => {
 
     return (
         <>
         <div className="hero">
-        <video autoPlay muted loop className="background-video" src="assets/0104.mov"></video>
+        <video autoPlay muted loop className="background-video" src={video}></video>
         <nav>
         </nav>
         <div className="title">
@@ -23,8 +24,6 @@ const HomePage:FC = () => {
             of top European football leagues, providing users with deeper
             insights into potential outcomes and trends.
           </div>
-        </div>
-        <div className="item-choice">
         </div>
       </div>
         </>

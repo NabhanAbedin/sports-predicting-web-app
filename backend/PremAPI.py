@@ -1,14 +1,17 @@
 from flask import Flask, jsonify, request, render_template
 from Predictor import Predictor
 from flask_cors import CORS
+import json
+import numpy as np
 
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/preprocess', methods=['GET', 'POST'])
+@app.route('/predictions', methods=['GET', 'POST'])
 def preprocess():
     data = request.get_json()
-    predictor = Predictor(data['league'])
+    print(data['league'])
+    predictor = Predictor(data['league']+'.csv')
 
     print(f'Recieved Data: {data}')
     print('data:', data['league'])
@@ -21,17 +24,10 @@ def preprocess():
     final_df = predictor.create_final_df(combined,matches_rolling)
     
 
-    df_html = final_df.to_html(classes='table table-stripped', index=False)
+    predictions = json.loads(final_df.to_json(orient='records'))  
+    precision_py = np.asarray(precision).tolist()              
 
-    for column in final_df:
-        df_html = df_html.replace(f'<td>{column}</td>', 
-                          f'<td data-label="{column}">{column}</td>')
-        
-    for result in ['W', 'D', 'L']:
-        df_html = df_html.replace(f'<td>{result}</td>', 
-                          f'<td data-value="{result}">{result}</td>')
-    
-    return jsonify({'wins': str(df_html), 'precision': str(precision)})
+    return jsonify({'predictions': predictions, 'precision': precision_py})
 
 if __name__ == '__main__':
     app.run(host= '0.0.0.0', port=80)
