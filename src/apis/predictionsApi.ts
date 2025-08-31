@@ -1,4 +1,4 @@
-import { Leagues, PredictionAPIResponse, predictionObj, PredictorOptions } from "../types/predictions"
+import { Leagues, PredictionAPIResponse, PredictorOptions } from "../types/predictions"
 
 export const getPredictions = async (league: Leagues, predictorOptions: PredictorOptions ): Promise<PredictionAPIResponse> => {
     const res = await fetch('http://127.0.0.1:80/predictions', {
