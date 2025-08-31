@@ -56,10 +56,11 @@ A machine learning–powered web application for predicting soccer match outcome
   - Filters by competition (Premier League, La Liga, Serie A).  
   - Exports the processed results into CSV files for later use.
  
-## Why CSVs Instead of a Database?
+## Why CSVs and JSONS Instead of a Database?
 - This project is a focused demonstration of machine learning predictions, not a CRUD-heavy app.
 - They are efficient for batch training/experimentation workflows in Python.
 - A database would add storage overhead and operational complexity without meaningful benefit for this use case.
+-The trivia question set is static and not expected to change over time. Because of this, setting up additional APIs or database queries would add unnecessary overhead. Storing the data in JSON files provides a simpler and faster solution for retrieval on the client side.
 
 ## Motivation
 This project is a redesigned version of an earlier prototype I built with vanilla JavaScript.  
