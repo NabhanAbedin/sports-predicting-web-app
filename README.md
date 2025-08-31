@@ -61,6 +61,10 @@ A machine learning–powered web application for predicting soccer match outcome
 - They are efficient for batch training/experimentation workflows in Python.
 - A database would add storage overhead and operational complexity without meaningful benefit for this use case.
 
+## Motivation
+This project is a redesigned version of an earlier prototype I built with vanilla JavaScript.  
+The original implementation had limited frontend structure, so I rebuilt it with **React (TypeScript)** and a more scalable architecture to improve maintainability and interactivity.
+
 ## References
 
 - Data preprocessing and machine learning workflow were inspired by the tutorial:  
